@@ -1,5 +1,7 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   L10nIntlModule,
   L10nLoader,
@@ -7,15 +9,18 @@ import {
 } from 'angular-l10n';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './root/components/header/header.component';
 import { LocalizationConfig } from './root/localization.config';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, HeaderComponent],
   imports: [
     BrowserModule,
     L10nTranslationModule.forRoot(LocalizationConfig.config),
     L10nIntlModule,
+    MatToolbarModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     {
