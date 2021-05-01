@@ -22,7 +22,10 @@
     ],
     "paths": {
       "@user/*": [
-        ".app/user/*"
+        "./app/user/*"
+      ],
+      "@app/*": [
+        "./app/*"
       ]
     }
   },
