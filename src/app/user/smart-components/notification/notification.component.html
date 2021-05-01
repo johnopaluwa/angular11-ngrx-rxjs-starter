@@ -6,6 +6,7 @@
       *ngIf="notification.active"
       [notification]="notification"
       [username]="userName$ | async"
+      (deleteNotification)="deleteNotification($event)"
     ></yova-notification-item>
   </ng-container>
 </ng-container>

@@ -19,7 +19,13 @@
   </mat-expansion-panel-header>
 
   <div class="notification__content">
-    <button class="content__button" mat-stroked-button>delete</button>
+    <button
+      class="content__button"
+      mat-stroked-button
+      (click)="deleteNotification.emit(notification)"
+    >
+      delete
+    </button>
     <div class="content__description">
       <div *ngIf="username$ | async as username" class="description__name">
         {{ username }}

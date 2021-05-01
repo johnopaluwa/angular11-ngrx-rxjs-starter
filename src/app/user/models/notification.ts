@@ -3,7 +3,6 @@ import { NotificationStatus } from './notification-status';
 
 export class NotificationData {
   constructor(
-    public readonly id: string,
     public readonly date: Date | null,
     public readonly title: string,
     public readonly desc: string,
@@ -13,7 +12,6 @@ export class NotificationData {
 
   public static parse(json: any): NotificationData {
     return new NotificationData(
-      json.id,
       ParseLogger.safeParseDate(json.date),
       json.title,
       json.desc,

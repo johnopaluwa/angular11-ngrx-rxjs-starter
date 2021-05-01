@@ -21,7 +21,9 @@ export class USerHttpApi {
     );
   }
 
-  public deleteNotificatioData(_notificationId: string): Observable<boolean> {
+  public deleteNotificatioData(
+    _notification: NotificationData
+  ): Observable<boolean> {
     return of(true);
   }
 }

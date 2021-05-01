@@ -45,11 +45,11 @@ export class NotificationEffects {
       ofType(deleteNotification),
       switchMap((action) => {
         action.reportProgress.inProgress();
-        return this.api.deleteNotificatioData(action.notificationId).pipe(
+        return this.api.deleteNotificatioData(action.notification).pipe(
           mergeMap((_) => {
             action.reportProgress.done();
             return [
-              notificationDeleted({ notificationId: action.notificationId }),
+              notificationDeleted({ notification: action.notification }),
               successAction({
                 action: action.type,
               }),

@@ -12,10 +12,10 @@ export const notificationLoaded = createAction(
 );
 export const deleteNotification = createAction(
   '[Notification] delete notification',
-  props<{ notificationId: string; reportProgress: ReportProgress }>()
+  props<{ notification: NotificationData; reportProgress: ReportProgress }>()
 );
 
 export const notificationDeleted = createAction(
   '[Notification] notification deleted',
-  props<{ notificationId: string }>()
+  props<{ notification: NotificationData }>()
 );

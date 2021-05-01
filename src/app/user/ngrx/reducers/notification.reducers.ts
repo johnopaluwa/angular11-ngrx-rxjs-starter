@@ -22,10 +22,17 @@ export const reducer = createReducer(
     ...state,
     data: orderBy(notifications, (s) => s.date, 'desc'),
   })),
-  on(notificationDeleted, (state, { notificationId }) => ({
+  on(notificationDeleted, (state, { notification }) => ({
     ...state,
     data: orderBy(
-      state.data.filter((s) => s.id !== notificationId),
+      state.data.filter(
+        (s) =>
+          s.active !== notification.active ||
+          s.date !== notification.date ||
+          s.title !== notification.title ||
+          s.desc !== notification.desc ||
+          s.status !== notification.status
+      ),
       (s) => s.date,
       'desc'
     ),
