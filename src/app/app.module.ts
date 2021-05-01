@@ -15,11 +15,11 @@ import { environment } from 'environments/environment';
 import { localStorageSync } from 'ngrx-store-localstorage';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthenticationHttpApi } from './root/api/authentication-http.api';
+import { UserDetailHttpApi } from './root/api/user-detail-http.api';
 import { HeaderComponent } from './root/components/header/header.component';
 import { LocalizationConfig } from './root/localization.config';
 import { actionLogger } from './root/meta-reducers/action-logger';
-import { AuthenticationEffects } from './root/ngrx/effects/authentication.effects';
+import { UserDetailsEffects } from './root/ngrx/effects/user-details.effects';
 import * as fromRoot from './root/ngrx/reducers';
 import * as fromUser from './user/ngrx/reducers';
 
@@ -27,7 +27,7 @@ export function localStorageSyncReducer(
   reducer: ActionReducer<any>
 ): ActionReducer<any> {
   return localStorageSync({
-    keys: [fromUser.storage],
+    keys: [fromRoot.storage, fromUser.storage],
     rehydrate: true,
   })(reducer);
 }
@@ -57,7 +57,7 @@ const metaReducers: Array<MetaReducer<any, any>> = [
         strictActionTypeUniqueness: true,
       },
     }),
-    EffectsModule.forRoot([AuthenticationEffects]),
+    EffectsModule.forRoot([UserDetailsEffects]),
     StoreDevtoolsModule.instrument({
       maxAge: 50,
       logOnly: environment.production,
@@ -72,7 +72,7 @@ const metaReducers: Array<MetaReducer<any, any>> = [
       deps: [L10nLoader],
       multi: true,
     },
-    AuthenticationHttpApi,
+    UserDetailHttpApi,
   ],
   bootstrap: [AppComponent],
 })

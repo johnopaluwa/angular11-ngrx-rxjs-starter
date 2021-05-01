@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { sortBy } from 'lodash';
+import { orderBy } from 'lodash';
 import { NotificationData } from '../../models/notification';
 import {
   notificationDeleted,
@@ -20,13 +20,14 @@ export const reducer = createReducer(
   initialState,
   on(notificationLoaded, (state, { notifications }) => ({
     ...state,
-    data: sortBy(notifications, (s) => s.date),
+    data: orderBy(notifications, (s) => s.date, 'desc'),
   })),
   on(notificationDeleted, (state, { notificationId }) => ({
     ...state,
-    data: sortBy(
+    data: orderBy(
       state.data.filter((s) => s.id !== notificationId),
-      (s) => s.date
+      (s) => s.date,
+      'desc'
     ),
   }))
 );

@@ -5,25 +5,31 @@ import {
   createFeatureSelector,
   createSelector,
 } from '@ngrx/store';
-import * as fromAuthentication from './authentication.reducers';
+import { defaultsDeep } from 'lodash';
+import * as fromUserDetail from './user-detail.reducers';
 
 export interface State {
-  auth: fromAuthentication.State;
+  userdetail: fromUserDetail.State;
 }
 
 export const ROOT_REDUCERS = new InjectionToken<
   ActionReducerMap<State, Action>
 >('Root reducers token', {
   factory: () => ({
-    auth: fromAuthentication.reducer,
+    userdetail: fromUserDetail.reducer,
   }),
 });
 
-export const getAuth = createFeatureSelector<State, fromAuthentication.State>(
-  'auth'
+export const getAuth = createFeatureSelector<State, fromUserDetail.State>(
+  'userdetail'
 );
 
-export const getLoggedInAccount = createSelector(
-  getAuth,
-  (state) => state.loggedInAccount
-);
+export const getUsername = createSelector(getAuth, (state) => state.username);
+
+export const storage = {
+  userdetail: {
+    deserialize: (json: any): State =>
+      defaultsDeep(json, fromUserDetail.initialState),
+    serialize: (state: State) => state,
+  },
+};

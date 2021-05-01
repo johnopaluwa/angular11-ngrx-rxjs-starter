@@ -1,5 +1,3 @@
-import { parseISO } from 'date-fns';
-
 export class ParseLogger {
   static parseArray<T>(parseFn: any, jsonArray: any): T[] {
     if (!jsonArray) {
@@ -30,19 +28,11 @@ export class ParseLogger {
     }
   }
 
-  static parseDate(json: any): Date | null {
-    if (json) {
-      return parseISO(json);
+  static safeParseDate(json: any): Date | null {
+    try {
+      return new Date(json);
+    } catch (_error) {
+      return null;
     }
-
-    return null;
-  }
-
-  static safeParseDate(json: any): Date {
-    if (json) {
-      return parseISO(json);
-    }
-
-    throw new Error(`Date is empty but should not be empty`);
   }
 }

@@ -1,5 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatIconModule } from '@angular/material/icon';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { USerHttpApi } from './api/user-http.api';
@@ -13,6 +16,9 @@ import { UserRoutingModule } from './user-routing.module';
   declarations: [NotificationComponent, NotificationItemComponent],
   imports: [
     CommonModule,
+    MatExpansionModule,
+    MatButtonModule,
+    MatIconModule,
     StoreModule.forFeature('user', USER_REDUCERS),
     EffectsModule.forFeature([NotificationEffects]),
     UserRoutingModule,

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as fromRoot from '@app/user/ngrx/reducers';
 import { Store } from '@ngrx/store';
-import { logIn } from './root/ngrx/actions/authentication.actions';
+import { setUserName } from './root/ngrx/actions/user-details.actions';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
   constructor(private readonly store: Store<fromRoot.State>) {}
 
   ngOnInit(): void {
-    // TODO: implement authentication in authentication module
-    this.store.dispatch(logIn({ username: 'John001', password: '123456' }));
+    // TODO: remove and use in component for creating a user
+    this.store.dispatch(setUserName({ username: 'John' }));
   }
 }

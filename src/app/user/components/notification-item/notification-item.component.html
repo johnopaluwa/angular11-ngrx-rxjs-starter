@@ -1,1 +1,30 @@
-<p>notification-item works!</p>
+<mat-expansion-panel
+  *ngIf="notification$ | async as notification"
+  class="notification"
+>
+  <mat-expansion-panel-header class="notification__header">
+    <mat-panel-title class="header__title">
+      <mat-icon
+        class="title__icon"
+        [class.title__icon--old]="
+          notification.status === notificationStatus.Old
+        "
+        >circle</mat-icon
+      >
+      <span *ngIf="notification.date">{{
+        notification.date | date: "dd.MM.YYYY"
+      }}</span>
+      <span> {{ notification.title }}</span>
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+
+  <div class="notification__content">
+    <button class="content__button" mat-stroked-button>delete</button>
+    <div class="content__description">
+      <div *ngIf="username$ | async as username" class="description__name">
+        {{ username }}
+      </div>
+      <div class="description__content" [innerHTML]="notification.desc"></div>
+    </div>
+  </div>
+</mat-expansion-panel>
