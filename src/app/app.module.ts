@@ -1,7 +1,9 @@
+import { HttpClientModule } from '@angular/common/http';
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EffectsModule } from '@ngrx/effects';
 import { ActionReducer, MetaReducer, StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import {
@@ -9,13 +11,15 @@ import {
   L10nLoader,
   L10nTranslationModule,
 } from 'angular-l10n';
+import { environment } from 'environments/environment';
 import { localStorageSync } from 'ngrx-store-localstorage';
-import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AuthenticationHttpApi } from './root/api/authentication-http.api';
 import { HeaderComponent } from './root/components/header/header.component';
 import { LocalizationConfig } from './root/localization.config';
 import { actionLogger } from './root/meta-reducers/action-logger';
+import { AuthenticationEffects } from './root/ngrx/effects/authentication.effects';
 import * as fromRoot from './root/ngrx/reducers';
 import * as fromUser from './user/ngrx/reducers';
 
@@ -41,6 +45,7 @@ const metaReducers: Array<MetaReducer<any, any>> = [
     L10nTranslationModule.forRoot(LocalizationConfig.config),
     L10nIntlModule,
     MatToolbarModule,
+    HttpClientModule,
     StoreModule.forRoot(fromRoot.ROOT_REDUCERS, {
       metaReducers,
       runtimeChecks: {
@@ -52,6 +57,7 @@ const metaReducers: Array<MetaReducer<any, any>> = [
         strictActionTypeUniqueness: true,
       },
     }),
+    EffectsModule.forRoot([AuthenticationEffects]),
     StoreDevtoolsModule.instrument({
       maxAge: 50,
       logOnly: environment.production,
@@ -66,6 +72,7 @@ const metaReducers: Array<MetaReducer<any, any>> = [
       deps: [L10nLoader],
       multi: true,
     },
+    AuthenticationHttpApi,
   ],
   bootstrap: [AppComponent],
 })

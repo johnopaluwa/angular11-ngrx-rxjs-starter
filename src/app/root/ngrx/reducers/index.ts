@@ -5,23 +5,25 @@ import {
   createFeatureSelector,
   createSelector,
 } from '@ngrx/store';
-import * as fromRoot from './root.reducers';
+import * as fromAuthentication from './authentication.reducers';
 
 export interface State {
-  root: fromRoot.State;
+  auth: fromAuthentication.State;
 }
 
 export const ROOT_REDUCERS = new InjectionToken<
   ActionReducerMap<State, Action>
 >('Root reducers token', {
   factory: () => ({
-    root: fromRoot.reducer,
+    auth: fromAuthentication.reducer,
   }),
 });
 
-export const getRoot = createFeatureSelector<State, fromRoot.State>('root');
+export const getAuth = createFeatureSelector<State, fromAuthentication.State>(
+  'auth'
+);
 
-export const getCompanyName = createSelector(
-  getRoot,
-  (state) => state.companyName
+export const getLoggedInAccount = createSelector(
+  getAuth,
+  (state) => state.loggedInAccount
 );

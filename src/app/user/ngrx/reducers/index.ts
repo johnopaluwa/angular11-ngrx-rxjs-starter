@@ -1,4 +1,5 @@
 import { InjectionToken } from '@angular/core';
+import * as fromRoot from '@app/root/ngrx/reducers';
 import {
   Action,
   ActionReducerMap,
@@ -8,31 +9,32 @@ import {
 import { defaultsDeep } from 'lodash';
 import * as fromNotification from './notification.reducers';
 
-export interface State {
-  notification: fromNotification.State;
+export interface UserState {
+  notifications: fromNotification.State;
 }
 
-export const defaultState: State = {
-  notification: fromNotification.initialState,
-};
+export interface State extends fromRoot.State {
+  user: UserState;
+}
 
 export const USER_REDUCERS = new InjectionToken<
-  ActionReducerMap<State, Action>
+  ActionReducerMap<UserState, Action>
 >('Users reducers token', {
   factory: () => ({
-    notification: fromNotification.reducer,
+    notifications: fromNotification.reducer,
   }),
 });
 
 export const storage = {
   user: {
-    deserialize: (json: any): State => defaultsDeep(json, defaultState),
+    deserialize: (json: any): State =>
+      defaultsDeep(json, fromNotification.initialState),
     serialize: (state: State) => state,
   },
 };
 
-export const getUSerState = createFeatureSelector<State>('user');
+export const getUSerState = createFeatureSelector<UserState>('user');
 export const getNotifications = createSelector(
   getUSerState,
-  (state) => state.notification
+  (state) => state.notifications.data
 );

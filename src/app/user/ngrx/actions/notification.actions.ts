@@ -1,8 +1,10 @@
+import { ReportProgress } from '@app/root/helpers/report-progress';
 import { createAction, props } from '@ngrx/store';
 import { NotificationData } from '../../models/notification';
 
 export const loadNotification = createAction(
-  '[Notification] load notification'
+  '[Notification] load notification',
+  props<{ reportProgress: ReportProgress }>()
 );
 export const notificationLoaded = createAction(
   '[Notification] notification loaded',
@@ -10,7 +12,7 @@ export const notificationLoaded = createAction(
 );
 export const deleteNotification = createAction(
   '[Notification] delete notification',
-  props<{ notificationId: string }>()
+  props<{ notificationId: string; reportProgress: ReportProgress }>()
 );
 
 export const notificationDeleted = createAction(

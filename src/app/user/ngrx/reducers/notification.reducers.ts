@@ -6,26 +6,26 @@ import {
   notificationLoaded,
 } from '../actions/notification.actions';
 
-export interface UserState {
-  notifications: NotificationData[];
+export interface NotificationState {
+  data: NotificationData[];
 }
 
-export type State = UserState;
+export type State = NotificationState;
 
 export const initialState: State = {
-  notifications: [],
+  data: [],
 };
 
 export const reducer = createReducer(
   initialState,
   on(notificationLoaded, (state, { notifications }) => ({
     ...state,
-    notifications: sortBy(notifications, (s) => s.date),
+    data: sortBy(notifications, (s) => s.date),
   })),
   on(notificationDeleted, (state, { notificationId }) => ({
     ...state,
-    notifications: sortBy(
-      state.notifications.filter((s) => s.id !== notificationId),
+    data: sortBy(
+      state.data.filter((s) => s.id !== notificationId),
       (s) => s.date
     ),
   }))
