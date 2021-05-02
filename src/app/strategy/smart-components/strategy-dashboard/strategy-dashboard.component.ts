@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ModuleUrls, UserUrls } from '@app/root/enums/global-url';
 import { NotificationData } from '@app/shell-authenticated/models/notification';
 import { NotificationStatus } from '@app/shell-authenticated/models/notification-status';
+import { notificationSeen } from '@app/shell-authenticated/ngrx/actions/notification.actions';
 import * as fromShellAuthenticated from '@app/shell-authenticated/ngrx/reducers';
 import { select, Store } from '@ngrx/store';
 import { orderBy } from 'lodash';
@@ -42,5 +43,9 @@ export class StrategyDashboardComponent implements OnInit {
         state: { data: latestNewNotifications },
       }
     );
+  }
+
+  public closePreview(notification: NotificationData) {
+    this.store.dispatch(notificationSeen({ notification: notification }));
   }
 }

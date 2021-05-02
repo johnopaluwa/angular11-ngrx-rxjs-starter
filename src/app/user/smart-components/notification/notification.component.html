@@ -4,7 +4,9 @@
     *ngIf="notifications$ | async as notifications; else notLoadedTemplate"
     class="notifications"
   >
-    <ng-container *ngFor="let notification of notifications">
+    <ng-container
+      *ngFor="let notification of notifications; trackBy: trackByObj"
+    >
       <yova-notification-item
         *ngIf="notification.active"
         [notification]="notification"
@@ -12,10 +14,11 @@
         [expand]="
           notification
             | universalTransform
-              : expandNotification
-              : (chosenNotification$ | async)
+              : sameNotification
+              : (notificationToExpand$ | async)
         "
         (deleteNotification)="deleteNotification($event)"
+        (expansionOpened)="expansionOpened(notification)"
       ></yova-notification-item>
     </ng-container>
   </mat-accordion>

@@ -10,6 +10,7 @@
       actionIcon="cancel"
       [infoText]="latestNewNotification.title"
       (actionClicked)="gotoNotifications(latestNewNotification)"
+      (close)="closePreview(latestNewNotification)"
     >
     </yova-information-preview>
   </div>

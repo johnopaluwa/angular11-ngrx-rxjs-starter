@@ -1,9 +1,12 @@
+import { NotificationStatus } from '@app/shell-authenticated/models/notification-status';
 import { createReducer, on } from '@ngrx/store';
-import { orderBy } from 'lodash';
+import { includes, isEqual, orderBy } from 'lodash';
 import { NotificationData } from '../../models/notification';
 import {
+  manyNotificationSeen,
   notificationDeleted,
   notificationLoaded,
+  notificationSeen,
 } from '../actions/notification.actions';
 
 export interface NotificationState {
@@ -36,5 +39,35 @@ export const reducer = createReducer(
       (s) => s.date,
       'desc'
     ),
+  })),
+
+  on(notificationSeen, (state, { notification }) => ({
+    ...state,
+    data: state.data.map((s) => {
+      if (
+        s.active === notification.active &&
+        s.title === notification.title &&
+        s.desc === notification.desc &&
+        s.status === notification.status &&
+        !!s.date &&
+        !!notification.date &&
+        isEqual(s.date, notification.date)
+      ) {
+        return { ...s, status: NotificationStatus.Old };
+      } else {
+        return s;
+      }
+    }),
+  })),
+
+  on(manyNotificationSeen, (state, { notifications }) => ({
+    ...state,
+    data: state.data.map((s) => {
+      if (includes(notifications, s)) {
+        return { ...s, status: NotificationStatus.Old };
+      } else {
+        return s;
+      }
+    }),
   }))
 );

@@ -24,6 +24,9 @@ export class NotificationItemComponent implements OnInit {
   @Output()
   public readonly deleteNotification = new EventEmitter<NotificationData>();
 
+  @Output()
+  public readonly expansionOpened = new EventEmitter();
+
   public readonly notification$ = new ReplaySubject<NotificationData>(1);
   public readonly username$ = new ReplaySubject<string | null>(1);
   public readonly expand$ = new ReplaySubject<boolean>(1);

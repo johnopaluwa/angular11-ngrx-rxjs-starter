@@ -19,3 +19,13 @@ export const notificationDeleted = createAction(
   '[Notification] notification deleted',
   props<{ notification: NotificationData }>()
 );
+
+export const notificationSeen = createAction(
+  '[Notification] notification seen',
+  props<{ notification: NotificationData }>()
+);
+
+export const manyNotificationSeen = createAction(
+  '[Notification] many notification seen',
+  props<{ notifications: NotificationData[] }>()
+);

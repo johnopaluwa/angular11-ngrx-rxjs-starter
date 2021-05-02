@@ -1,7 +1,9 @@
 <mat-expansion-panel
+  #matexpansion
   *ngIf="notification$ | async as notification"
   class="notification mat-elevation-z0"
   [expanded]="expand$ | async"
+  (opened)="expansionOpened.emit()"
 >
   <mat-expansion-panel-header class="notification__header">
     <mat-panel-title class="header__title">
