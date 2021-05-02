@@ -16,8 +16,11 @@ export class StrategyDashboardComponent implements OnInit {
   ngOnInit(): void {}
 
   public gotoNotifications() {
-    this.router.navigate([ModuleUrls.User, UserUrls.Notification], {
-      relativeTo: this.activatedRoute.root,
-    });
+    this.router.navigate(
+      [ModuleUrls.ShellAuthenticated, ModuleUrls.User, UserUrls.Notification],
+      {
+        relativeTo: this.activatedRoute.root,
+      }
+    );
   }
 }

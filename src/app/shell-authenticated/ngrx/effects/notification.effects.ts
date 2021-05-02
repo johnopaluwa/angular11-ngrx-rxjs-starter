@@ -3,16 +3,16 @@ import {
   errorAction,
   successAction,
 } from '@app/root/ngrx/actions/core.actions';
+import { NotificationHttpApi } from '@app/shell-authenticated/api/notification-http.api';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { of } from 'rxjs';
+import { catchError, mergeMap, switchMap } from 'rxjs/operators';
 import {
   deleteNotification,
   loadNotification,
   notificationDeleted,
   notificationLoaded,
-} from '@app/user/ngrx/actions/notification.actions';
-import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { USerHttpApi } from '@user/api/user-http.api';
-import { of } from 'rxjs';
-import { catchError, mergeMap, switchMap } from 'rxjs/operators';
+} from '../actions/notification.actions';
 
 @Injectable()
 export class NotificationEffects {
@@ -66,6 +66,6 @@ export class NotificationEffects {
 
   constructor(
     private readonly actions$: Actions,
-    private readonly api: USerHttpApi
+    private readonly api: NotificationHttpApi
   ) {}
 }

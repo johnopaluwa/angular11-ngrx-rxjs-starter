@@ -3,18 +3,18 @@ import { RouterModule, Routes } from '@angular/router';
 import { ModuleUrls } from './root/enums/global-url';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: `${ModuleUrls.Strategy}` },
   {
-    path: `${ModuleUrls.Strategy}`,
-    pathMatch: 'prefix',
-    loadChildren: () =>
-      import('app/strategy/strategy.module').then((m) => m.StrategyModule),
+    path: '',
+    pathMatch: 'full',
+    redirectTo: `${ModuleUrls.ShellAuthenticated}`,
   },
   {
-    path: `${ModuleUrls.User}`,
+    path: `${ModuleUrls.ShellAuthenticated}`,
     pathMatch: 'prefix',
     loadChildren: () =>
-      import('app/user/user.module').then((m) => m.UserModule),
+      import('app/shell-authenticated/shell-authenticated.module').then(
+        (m) => m.ShellAuthenticatedModule
+      ),
   },
 ];
 

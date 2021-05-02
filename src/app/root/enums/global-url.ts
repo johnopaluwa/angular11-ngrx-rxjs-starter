@@ -1,6 +1,7 @@
 export enum ModuleUrls {
   User = 'user',
   Strategy = 'strategy',
+  ShellAuthenticated = 'dashboard',
 }
 
 export enum UserUrls {
@@ -8,5 +9,5 @@ export enum UserUrls {
 }
 
 export enum StrategyUrls {
-  Dashboard = 'dashboard',
+  Overview = 'overview',
 }

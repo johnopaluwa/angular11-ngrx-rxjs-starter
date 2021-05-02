@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { NotificationData } from '@user/models/notification';
-import { NotificationStatus } from '@user/models/notification-status';
+import { NotificationData } from '@app/shell-authenticated/models/notification';
+import { NotificationStatus } from '@app/shell-authenticated/models/notification-status';
 import { ReplaySubject } from 'rxjs';
 
 @Component({

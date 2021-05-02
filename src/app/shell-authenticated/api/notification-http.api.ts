@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators';
 import { NotificationData } from '../models/notification';
 
 @Injectable()
-export class USerHttpApi {
+export class NotificationHttpApi {
   private _jsonURL = 'assets/data/notifications.json';
   constructor(private http: HttpClient) {}
 

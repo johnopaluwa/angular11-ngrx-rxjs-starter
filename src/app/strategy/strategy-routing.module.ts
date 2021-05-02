@@ -4,9 +4,9 @@ import { StrategyUrls } from '@app/root/enums/global-url';
 import { StrategyDashboardComponent } from './smart-components/strategy-dashboard/strategy-dashboard.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: `${StrategyUrls.Dashboard}` },
+  { path: '', pathMatch: 'full', redirectTo: `${StrategyUrls.Overview}` },
   {
-    path: `${StrategyUrls.Dashboard}`,
+    path: `${StrategyUrls.Overview}`,
     pathMatch: 'prefix',
     component: StrategyDashboardComponent,
   },

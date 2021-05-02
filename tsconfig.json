@@ -26,6 +26,9 @@
       ],
       "@app/*": [
         "./app/*"
+      ],
+      "@shell": [
+        "./app/shell-authenticated/*"
       ]
     }
   },

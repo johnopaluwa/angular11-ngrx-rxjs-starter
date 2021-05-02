@@ -13,17 +13,16 @@ import { localStorageSync } from 'ngrx-store-localstorage';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserDetailHttpApi } from './root/api/user-detail-http.api';
-import { HeaderComponent } from './root/components/header/header.component';
 import { actionLogger } from './root/meta-reducers/action-logger';
 import { UserDetailsEffects } from './root/ngrx/effects/user-details.effects';
 import * as fromRoot from './root/ngrx/reducers';
-import * as fromUser from './user/ngrx/reducers';
+import * as fromShellAuthenticated from './shell-authenticated/ngrx/reducers';
 
 export function localStorageSyncReducer(
   reducer: ActionReducer<any>
 ): ActionReducer<any> {
   return localStorageSync({
-    keys: [fromRoot.storage, fromUser.storage],
+    keys: [fromRoot.storage, fromShellAuthenticated.storage],
     rehydrate: true,
   })(reducer);
 }
@@ -39,7 +38,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 }
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     MatToolbarModule,

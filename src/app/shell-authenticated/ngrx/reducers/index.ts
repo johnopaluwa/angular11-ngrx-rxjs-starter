@@ -9,31 +9,33 @@ import {
 import { defaultsDeep } from 'lodash';
 import * as fromNotification from './notification.reducers';
 
-export interface UserState {
+export interface ShellAuthenticatedState {
   notifications: fromNotification.State;
 }
 
 export interface State extends fromRoot.State {
-  user: UserState;
+  shellauthenticated: ShellAuthenticatedState;
 }
 
 export const USER_REDUCERS = new InjectionToken<
-  ActionReducerMap<UserState, Action>
->('Users reducers token', {
+  ActionReducerMap<ShellAuthenticatedState, Action>
+>('Shell authenticated reducers token', {
   factory: () => ({
     notifications: fromNotification.reducer,
   }),
 });
 
 export const storage = {
-  user: {
+  shellauthenticated: {
     deserialize: (json: any): State =>
       defaultsDeep(json, fromNotification.initialState),
     serialize: (state: State) => state,
   },
 };
 
-export const getUSerState = createFeatureSelector<UserState>('user');
+export const getUSerState = createFeatureSelector<ShellAuthenticatedState>(
+  'shellauthenticated'
+);
 export const getNotifications = createSelector(
   getUSerState,
   (state) => state.notifications.data
