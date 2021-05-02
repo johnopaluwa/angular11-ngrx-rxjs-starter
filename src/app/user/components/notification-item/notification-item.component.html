@@ -4,6 +4,7 @@
   class="notification mat-elevation-z0"
   [expanded]="expand$ | async"
   (opened)="expansionOpened.emit()"
+  data-test="data__expansion"
 >
   <mat-expansion-panel-header class="notification__header">
     <mat-panel-title class="header__title">
@@ -12,12 +13,13 @@
         [class.title__icon--old]="
           notification.status === notificationStatus.Old
         "
+        data-test="data__icon"
         >circle</mat-icon
       >
-      <span *ngIf="notification.date">{{
+      <span *ngIf="notification.date" data-test="data__date">{{
         notification.date | date: "dd.MM.YYYY"
       }}</span>
-      <span> {{ notification.title }}</span>
+      <span data-test="data__title"> {{ notification.title }}</span>
     </mat-panel-title>
   </mat-expansion-panel-header>
 
@@ -33,10 +35,18 @@
     </div>
 
     <div class="content__description">
-      <div *ngIf="username$ | async as username" class="description__name">
+      <div
+        *ngIf="username$ | async as username"
+        class="description__name"
+        data-test="data__name"
+      >
         {{ "YOVA.USER.NOTIFICATION.HELLO" | translate: { name: username } }}
       </div>
-      <div class="description__content" [innerHTML]="notification.desc"></div>
+      <div
+        class="description__content"
+        [innerHTML]="notification.desc"
+        data-test="data__content"
+      ></div>
     </div>
   </div>
 </mat-expansion-panel>

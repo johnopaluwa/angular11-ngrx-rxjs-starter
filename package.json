@@ -30,6 +30,7 @@
     "@ngx-translate/http-loader": "^6.0.0",
     "angular-l10n": "^11.1.0",
     "date-fns": "^2.21.1",
+    "ng-mocks": "^11.10.1",
     "ngrx-store-localstorage": "^11.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
