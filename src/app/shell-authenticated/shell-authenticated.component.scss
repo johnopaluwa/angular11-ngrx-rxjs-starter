@@ -6,6 +6,12 @@
 }
 
 .app__content{
-  padding-left: $spacer-xxl;
-  padding-right: $spacer-xxl;
+    padding-left: $spacer-sm;
+    padding-right: $spacer-sm;
+    @include  text--size-small-20();
+    @media screen and (min-width: $medium) {
+      padding-left: $spacer-xxl;
+      padding-right: $spacer-xxl;
+      @include  text--size-small-30();
+    }
 }

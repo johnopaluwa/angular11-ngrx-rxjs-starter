@@ -18,7 +18,7 @@ import { NotificationItemComponent } from '@user/components/notification-item/no
 import { MockComponents, MockPipes } from 'ng-mocks';
 import { NotificationComponent } from './notification.component';
 
-fdescribe('NotificationComponent', () => {
+describe('NotificationComponent', () => {
   let component: NotificationComponent;
   let fixture: ComponentFixture<NotificationComponent>;
 

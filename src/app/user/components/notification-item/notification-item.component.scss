@@ -3,6 +3,10 @@
 .header__title{
   align-items: center;
   grid-column-gap: 20px;
+  @include text--size-small-10();
+  @media screen and (min-width: $medium) {
+    @include  text--size-small-30();
+  }
 }
 
 .title__icon{
@@ -17,4 +21,11 @@
   display: grid;
   grid-template-columns: auto 1fr;
   column-gap: $spacer-lg
+}
+
+.notification__content{
+  @include text--size-small-10();
+  @media screen and (min-width: $medium) {
+    @include  text--size-small-30();
+  }
 }
