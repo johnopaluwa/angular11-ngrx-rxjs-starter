@@ -11,6 +11,7 @@
       [infoText]="latestNewNotification.title"
       (actionClicked)="gotoNotifications(latestNewNotification)"
       (close)="closePreview(latestNewNotification)"
+      [attr.data-test]="'data__noti-item-' + latestNewNotification.title"
     >
     </yova-information-preview>
   </div>
