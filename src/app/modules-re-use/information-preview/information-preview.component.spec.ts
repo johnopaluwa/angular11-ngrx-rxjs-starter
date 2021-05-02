@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { InformationPreviewComponent } from './information-preview.component';
 
 describe('InformationPreviewComponent', () => {
@@ -8,9 +7,8 @@ describe('InformationPreviewComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ InformationPreviewComponent ]
-    })
-    .compileComponents();
+      declarations: [InformationPreviewComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

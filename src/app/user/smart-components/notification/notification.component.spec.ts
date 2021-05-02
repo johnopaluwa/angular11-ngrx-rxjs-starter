@@ -127,7 +127,6 @@ describe('NotificationComponent', () => {
     const actionType = union({ manyNotificationSeen });
 
     const action = dispatchSpy.calls.allArgs()[0][0] as typeof actionType;
-    console.log(action);
 
     expect(action.notifications).toEqual([xpengNotification, nioNotification]);
   });
