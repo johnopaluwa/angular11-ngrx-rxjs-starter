@@ -9,6 +9,12 @@
         *ngIf="notification.active"
         [notification]="notification"
         [username]="userName$ | async"
+        [expand]="
+          notification
+            | universalTransform
+              : expandNotification
+              : (chosenNotification$ | async)
+        "
         (deleteNotification)="deleteNotification($event)"
       ></yova-notification-item>
     </ng-container>

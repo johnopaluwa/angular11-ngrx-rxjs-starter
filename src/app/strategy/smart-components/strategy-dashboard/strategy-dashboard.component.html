@@ -1,10 +1,16 @@
 <div class="strategy">
-  <yova-information-preview
-    class="strategy__info-preview"
-    infoIcon="info_outlined"
-    actionIcon="cancel"
-    [infoText]="'sjsj sis isis'"
-    (actionClicked)="gotoNotifications()"
+  <div
+    *ngIf="latestNewNotifications$ | async as latestNewNotifications"
+    class="strategy__notifications"
   >
-  </yova-information-preview>
+    <yova-information-preview
+      *ngFor="let latestNewNotification of latestNewNotifications"
+      class="strategy__info-preview"
+      infoIcon="info_outlined"
+      actionIcon="cancel"
+      [infoText]="latestNewNotification.title"
+      (actionClicked)="gotoNotifications(latestNewNotification)"
+    >
+    </yova-information-preview>
+  </div>
 </div>

@@ -1,6 +1,7 @@
 @import 'abstracts.scss';
 
-.strategy__info-preview{
+.strategy__notifications{
   @include info-message-header-margin();
-  display: block;
+  display: grid;
+  row-gap: $spacer-xs;
 }

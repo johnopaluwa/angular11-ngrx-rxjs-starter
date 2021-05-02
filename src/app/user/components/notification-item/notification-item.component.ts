@@ -17,11 +17,16 @@ export class NotificationItemComponent implements OnInit {
     this.username$.next(val);
   }
 
+  @Input() public set expand(val: boolean) {
+    this.expand$.next(val);
+  }
+
   @Output()
   public readonly deleteNotification = new EventEmitter<NotificationData>();
 
   public readonly notification$ = new ReplaySubject<NotificationData>(1);
   public readonly username$ = new ReplaySubject<string | null>(1);
+  public readonly expand$ = new ReplaySubject<boolean>(1);
   public notificationStatus = NotificationStatus;
   constructor() {}
 
