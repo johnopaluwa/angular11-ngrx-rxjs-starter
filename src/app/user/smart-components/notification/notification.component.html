@@ -1,6 +1,6 @@
 <div>
   <div class="title">{{ "YOVA.USER.NOTIFICATION.TITLE" | translate }}</div>
-  <div
+  <mat-accordion
     *ngIf="notifications$ | async as notifications; else notLoadedTemplate"
     class="notifications"
   >
@@ -12,6 +12,6 @@
         (deleteNotification)="deleteNotification($event)"
       ></yova-notification-item>
     </ng-container>
-  </div>
+  </mat-accordion>
   <ng-template #notLoadedTemplate> </ng-template>
 </div>
