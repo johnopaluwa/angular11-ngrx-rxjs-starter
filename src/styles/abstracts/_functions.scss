@@ -4,7 +4,7 @@
   @return ($pxValue / $oneRem)+rem;
 }
 
-// PX to EM, eg. for line-height: berry-px-to-em($line-height, $font-size)
+// PX to EM, eg. for line-height: yova-px-to-em($line-height, $font-size)
 @function yova-px-to-em($pxValue, $oneEm) {
   @return ($pxValue / $oneEm)+em;
 }

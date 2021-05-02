@@ -1,0 +1,23 @@
+
+@import 'abstracts.scss';
+
+.information__icon{
+  @include icon--size-large();
+}
+
+.information{
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  grid-column-gap: 10px;
+  padding: $spacer-md;
+  background: $yova-new-10;
+  align-items: center;
+
+  .mat-button-toggle-focus-overlay {
+    display: none;
+    }
+}
+
+.content__action{
+ @include button--link();
+}

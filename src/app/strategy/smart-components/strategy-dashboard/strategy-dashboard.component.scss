@@ -1,0 +1,6 @@
+@import 'abstracts.scss';
+
+.strategy__info-preview{
+  @include info-message-header-margin();
+  display: block;
+}

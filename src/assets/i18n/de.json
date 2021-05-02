@@ -1,7 +1,8 @@
 {
   "YOVA": {
     "ACTIONS": {
-      "DELETE": "Löschen"
+      "DELETE": "Löschen",
+      "CONTINUE": "Mehr erfahren"
     },
     "USER": {
       "NOTIFICATION": {

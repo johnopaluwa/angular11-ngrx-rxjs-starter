@@ -6,3 +6,7 @@
   margin-bottom: $spacer-lg;
 }
 
+@mixin info-message-header-margin() {
+  margin-top: $spacer-lg;
+  margin-bottom: $spacer-lg;
+}

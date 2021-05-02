@@ -1,0 +1,20 @@
+<div *ngIf="infoText$ | async as infoText" class="information">
+  <ng-container *ngIf="infoIcon$ | async as infoIcon; else noInfoIcon">
+    <mat-icon class="information__icon">{{ infoIcon }}</mat-icon>
+  </ng-container>
+  <ng-template #noInfoIcon>
+    <div></div>
+  </ng-template>
+  <span class="information__text">{{ infoText }}</span>
+  <a href="#" class="content__action" (click)="action($event)">{{
+    "YOVA.ACTIONS.CONTINUE" | translate
+  }}</a>
+
+  <button
+    *ngIf="actionIcon$ | async as actionIcon"
+    mat-icon-button
+    (click)="close.emit()"
+  >
+    <mat-icon class="information__cancel">{{ actionIcon }}</mat-icon>
+  </button>
+</div>

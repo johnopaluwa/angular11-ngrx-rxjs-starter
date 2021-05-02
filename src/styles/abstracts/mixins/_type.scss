@@ -53,3 +53,16 @@
   font-size: yova-px-to-rem(34);
   line-height: yova-px-to-em($pxValue: 36, $oneEm: 34);
 }
+
+
+@mixin icon--size-small {
+  font-size: 1rem;
+  width: 1rem;
+  height: 1rem;
+}
+
+@mixin icon--size-large {
+  font-size: 3rem;
+  width: 3rem;
+  height: 3rem;
+}
