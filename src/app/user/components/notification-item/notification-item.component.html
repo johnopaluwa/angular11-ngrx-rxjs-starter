@@ -1,6 +1,6 @@
 <mat-expansion-panel
   *ngIf="notification$ | async as notification"
-  class="notification"
+  class="notification mat-elevation-z0"
 >
   <mat-expansion-panel-header class="notification__header">
     <mat-panel-title class="header__title">
@@ -19,16 +19,19 @@
   </mat-expansion-panel-header>
 
   <div class="notification__content">
-    <button
-      class="content__button"
-      mat-stroked-button
-      (click)="deleteNotification.emit(notification)"
-    >
-      delete
-    </button>
+    <div>
+      <button
+        class="content__button"
+        mat-stroked-button
+        (click)="deleteNotification.emit(notification)"
+      >
+        <span> {{ "YOVA.ACTIONS.DELETE" | translate }}</span>
+      </button>
+    </div>
+
     <div class="content__description">
       <div *ngIf="username$ | async as username" class="description__name">
-        {{ username }}
+        {{ "YOVA.USER.NOTIFICATION.HELLO" | translate: { name: username } }}
       </div>
       <div class="description__content" [innerHTML]="notification.desc"></div>
     </div>

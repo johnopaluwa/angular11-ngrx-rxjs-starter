@@ -1,23 +1,19 @@
-import { HttpClientModule } from '@angular/common/http';
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EffectsModule } from '@ngrx/effects';
 import { ActionReducer, MetaReducer, StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import {
-  L10nIntlModule,
-  L10nLoader,
-  L10nTranslationModule,
-} from 'angular-l10n';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { environment } from 'environments/environment';
 import { localStorageSync } from 'ngrx-store-localstorage';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserDetailHttpApi } from './root/api/user-detail-http.api';
 import { HeaderComponent } from './root/components/header/header.component';
-import { LocalizationConfig } from './root/localization.config';
 import { actionLogger } from './root/meta-reducers/action-logger';
 import { UserDetailsEffects } from './root/ngrx/effects/user-details.effects';
 import * as fromRoot from './root/ngrx/reducers';
@@ -38,14 +34,23 @@ const metaReducers: Array<MetaReducer<any, any>> = [
   localStorageSyncReducer,
 ];
 
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
+
 @NgModule({
   declarations: [AppComponent, HeaderComponent],
   imports: [
     BrowserModule,
-    L10nTranslationModule.forRoot(LocalizationConfig.config),
-    L10nIntlModule,
     MatToolbarModule,
     HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+    }),
     StoreModule.forRoot(fromRoot.ROOT_REDUCERS, {
       metaReducers,
       runtimeChecks: {
@@ -65,19 +70,7 @@ const metaReducers: Array<MetaReducer<any, any>> = [
     AppRoutingModule,
     BrowserAnimationsModule,
   ],
-  providers: [
-    {
-      provide: APP_INITIALIZER,
-      useFactory: initLocalization,
-      deps: [L10nLoader],
-      multi: true,
-    },
-    UserDetailHttpApi,
-  ],
+  providers: [UserDetailHttpApi],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
-
-export function initLocalization(l10nLoader: L10nLoader): () => Promise<void> {
-  return () => l10nLoader.init();
-}

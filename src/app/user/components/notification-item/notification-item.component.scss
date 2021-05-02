@@ -1,12 +1,20 @@
+@import 'abstracts.scss';
+
 .header__title{
   align-items: center;
   grid-column-gap: 20px;
 }
 
 .title__icon{
-  color: #A3D0DA;
+  color: $yova-new;
 }
 
 .title__icon--old{
  color: transparent;
+}
+
+.notification__content{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: $spacer-lg
 }

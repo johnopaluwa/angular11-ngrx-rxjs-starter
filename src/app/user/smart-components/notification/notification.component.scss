@@ -1,4 +1,12 @@
+@import 'abstracts.scss';
+
+.title{
+  @include page-title();
+}
+
 .notifications{
   display: grid;
-  row-gap: 4px;
+  row-gap: $spacer-xs;
 }
+
+

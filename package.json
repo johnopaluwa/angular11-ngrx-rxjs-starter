@@ -26,6 +26,8 @@
     "@ngrx/router-store": "^11.1.1",
     "@ngrx/store": "^11.1.1",
     "@ngrx/store-devtools": "^11.1.1",
+    "@ngx-translate/core": "^13.0.0",
+    "@ngx-translate/http-loader": "^6.0.0",
     "angular-l10n": "^11.1.0",
     "date-fns": "^2.21.1",
     "ngrx-store-localstorage": "^11.0.0",

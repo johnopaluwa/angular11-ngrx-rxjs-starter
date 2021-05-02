@@ -1,13 +1,17 @@
-<ng-container
-  *ngIf="notifications$ | async as notifications; else notLoadedTemplate"
->
-  <ng-container *ngFor="let notification of notifications">
-    <yova-notification-item
-      *ngIf="notification.active"
-      [notification]="notification"
-      [username]="userName$ | async"
-      (deleteNotification)="deleteNotification($event)"
-    ></yova-notification-item>
-  </ng-container>
-</ng-container>
-<ng-template #notLoadedTemplate> </ng-template>
+<div>
+  <div class="title">{{ "YOVA.USER.NOTIFICATION.TITLE" | translate }}</div>
+  <div
+    *ngIf="notifications$ | async as notifications; else notLoadedTemplate"
+    class="notifications"
+  >
+    <ng-container *ngFor="let notification of notifications">
+      <yova-notification-item
+        *ngIf="notification.active"
+        [notification]="notification"
+        [username]="userName$ | async"
+        (deleteNotification)="deleteNotification($event)"
+      ></yova-notification-item>
+    </ng-container>
+  </div>
+  <ng-template #notLoadedTemplate> </ng-template>
+</div>

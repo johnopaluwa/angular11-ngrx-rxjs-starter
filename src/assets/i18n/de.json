@@ -1,0 +1,13 @@
+{
+  "YOVA": {
+    "ACTIONS": {
+      "DELETE": "Löschen"
+    },
+    "USER": {
+      "NOTIFICATION": {
+        "TITLE": "Mitteilungen",
+        "HELLO": "Hallo, {{name}}"
+      }
+    }
+  }
+}
