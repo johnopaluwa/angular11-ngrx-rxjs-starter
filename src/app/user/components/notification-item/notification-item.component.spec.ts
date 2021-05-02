@@ -13,7 +13,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { MockComponents } from 'ng-mocks/dist/lib/mock-component/mock-component';
 import { NotificationItemComponent } from './notification-item.component';
 
-fdescribe('NotificationItemComponent', () => {
+describe('NotificationItemComponent', () => {
   let component: NotificationItemComponent;
   let fixture: ComponentFixture<NotificationItemComponent>;
 

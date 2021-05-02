@@ -19,6 +19,7 @@
         "
         (deleteNotification)="deleteNotification($event)"
         (expansionOpened)="expansionOpened(notification)"
+        [attr.data-test]="'data__noti-item-' + notification.title"
       ></yova-notification-item>
     </ng-container>
   </mat-accordion>
