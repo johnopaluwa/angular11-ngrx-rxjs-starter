@@ -49,8 +49,7 @@ describe('NotificationItemComponent', () => {
       title: 'Nio is removed from your portfolio',
       active: true,
       date: new Date(1995, 11, 17, 3, 24, 0),
-      desc:
-        '<p>We removed this company from your portfolio. Lorem ipsum dolor sit amet. </p>',
+      desc: '<p>We removed this company from your portfolio. Lorem ipsum dolor sit amet. </p>',
       status: NotificationStatus.New,
     };
     component.username = 'John';
@@ -65,7 +64,7 @@ describe('NotificationItemComponent', () => {
     ).toBe(`Nio is removed from your portfolio`);
     expect(
       getElement<HTMLElement>(fixture, 'data__name').innerHTML.trim()
-    ).toBe(`YOVA.USER.NOTIFICATION.HELLO`);
+    ).toBe(`YOLO.USER.NOTIFICATION.HELLO`);
     expect(
       getElement<HTMLElement>(fixture, 'data__content').innerHTML.trim()
     ).toBe(

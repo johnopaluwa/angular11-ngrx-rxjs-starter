@@ -3,7 +3,7 @@
     *ngIf="latestNewNotifications$ | async as latestNewNotifications"
     class="strategy__notifications"
   >
-    <yova-information-preview
+    <yolo-information-preview
       *ngFor="let latestNewNotification of latestNewNotifications"
       class="strategy__info-preview"
       infoIcon="info_outlined"
@@ -13,6 +13,6 @@
       (close)="closePreview(latestNewNotification)"
       [attr.data-test]="'data__noti-item-' + latestNewNotification.title"
     >
-    </yova-information-preview>
+    </yolo-information-preview>
   </div>
 </div>

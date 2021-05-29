@@ -1,7 +1,7 @@
 // Inline text semantics/ Font style & weight
 @mixin page-title() {
   @include text--size-large-10();
-  @include yova-type-text-bold();
+  @include yolo-type-text-bold();
   margin-top: $spacer-lg;
   margin-bottom: $spacer-lg;
 }

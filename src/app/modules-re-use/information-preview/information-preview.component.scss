@@ -1,23 +1,22 @@
+@import "abstracts.scss";
 
-@import 'abstracts.scss';
-
-.information__icon{
+.information__icon {
   @include icon--size-large();
 }
 
-.information{
+.information {
   display: grid;
   grid-template-columns: auto 1fr auto auto;
   grid-column-gap: 10px;
   padding: $spacer-sm;
-  background: $yova-new-10;
+  background: $yolo-new-10;
   align-items: center;
 
   .mat-button-toggle-focus-overlay {
     display: none;
-    }
+  }
 }
 
-.content__action{
- @include button--link();
+.content__action {
+  @include button--link();
 }

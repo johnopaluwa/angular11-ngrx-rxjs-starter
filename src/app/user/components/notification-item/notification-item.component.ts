@@ -4,7 +4,7 @@ import { NotificationStatus } from '@app/shell-authenticated/models/notification
 import { ReplaySubject } from 'rxjs';
 
 @Component({
-  selector: 'yova-notification-item',
+  selector: 'yolo-notification-item',
   templateUrl: './notification-item.component.html',
   styleUrls: ['./notification-item.component.scss'],
 })

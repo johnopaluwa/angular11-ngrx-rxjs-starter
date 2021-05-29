@@ -1,17 +1,17 @@
-@import 'abstracts.scss';
+@import "abstracts.scss";
 
 .app {
-  background-color: $yova-background;
+  background-color: $yolo-background;
   height: 100%;
 }
 
-.app__content{
-    padding-left: $spacer-sm;
-    padding-right: $spacer-sm;
-    @include  text--size-small-20();
-    @media screen and (min-width: $medium) {
-      padding-left: $spacer-xxl;
-      padding-right: $spacer-xxl;
-      @include  text--size-small-30();
-    }
+.app__content {
+  padding-left: $spacer-sm;
+  padding-right: $spacer-sm;
+  @include text--size-small-20();
+  @media screen and (min-width: $medium) {
+    padding-left: $spacer-xxl;
+    padding-right: $spacer-xxl;
+    @include text--size-small-30();
+  }
 }

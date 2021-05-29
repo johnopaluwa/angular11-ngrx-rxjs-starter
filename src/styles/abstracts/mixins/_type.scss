@@ -1,10 +1,10 @@
 // Inline text semantics/ Font style & weight
-@mixin yova-type-regular() {
+@mixin yolo-type-regular() {
   font-family: $font-family-text;
   font-weight: 300;
 }
 
-@mixin yova-type-text-bold() {
+@mixin yolo-type-text-bold() {
   font-family: $font-family-text;
   font-weight: 500;
 }
@@ -13,47 +13,45 @@
   font-size: 1rem;
 }
 
-
 @mixin text--size-small-10 {
-  font-size: .6rem;
-  line-height: .7rem;
+  font-size: 0.6rem;
+  line-height: 0.7rem;
 }
 
 @mixin text--size-small-20 {
-  font-size: .8rem;
-  line-height: .9rem;
+  font-size: 0.8rem;
+  line-height: 0.9rem;
 }
 
 @mixin text--size-small-30 {
-  font-size: .9rem;
+  font-size: 0.9rem;
   line-height: 1rem;
 }
 
 @mixin text--size-large-05 {
-  font-size: yova-px-to-rem(18);
-  line-height: yova-px-to-em($pxValue: 20, $oneEm: 18);
+  font-size: yolo-px-to-rem(18);
+  line-height: yolo-px-to-em($pxValue: 20, $oneEm: 18);
 }
 
 @mixin text--size-large-10 {
-  font-size: yova-px-to-rem(22);
-  line-height: yova-px-to-em($pxValue: 24, $oneEm: 22);
+  font-size: yolo-px-to-rem(22);
+  line-height: yolo-px-to-em($pxValue: 24, $oneEm: 22);
 }
 
 @mixin text--size-large-30 {
-  font-size: yova-px-to-rem(26);
-  line-height: yova-px-to-em($pxValue: 28, $oneEm: 26);
+  font-size: yolo-px-to-rem(26);
+  line-height: yolo-px-to-em($pxValue: 28, $oneEm: 26);
 }
 
 @mixin text--size-large-50 {
-  font-size: yova-px-to-rem(30);
+  font-size: yolo-px-to-rem(30);
   line-height: 1.2em;
 }
 
 @mixin text--size-large-70 {
-  font-size: yova-px-to-rem(34);
-  line-height: yova-px-to-em($pxValue: 36, $oneEm: 34);
+  font-size: yolo-px-to-rem(34);
+  line-height: yolo-px-to-em($pxValue: 36, $oneEm: 34);
 }
-
 
 @mixin icon--size-small {
   font-size: 1rem;
