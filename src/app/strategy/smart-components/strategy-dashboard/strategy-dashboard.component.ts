@@ -10,7 +10,7 @@ import { orderBy } from 'lodash';
 import { map } from 'rxjs/operators';
 
 @Component({
-  selector: 'yova-strategy-dashboard',
+  selector: 'yolo-strategy-dashboard',
   templateUrl: './strategy-dashboard.component.html',
   styleUrls: ['./strategy-dashboard.component.scss'],
 })

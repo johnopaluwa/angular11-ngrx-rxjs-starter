@@ -1,31 +1,31 @@
-@import 'abstracts.scss';
+@import "abstracts.scss";
 
-.header__title{
+.header__title {
   align-items: center;
   grid-column-gap: 20px;
   @include text--size-small-10();
   @media screen and (min-width: $medium) {
-    @include  text--size-small-30();
+    @include text--size-small-30();
   }
 }
 
-.title__icon{
-  color: $yova-new;
+.title__icon {
+  color: $yolo-new;
 }
 
-.title__icon--old{
- color: transparent;
+.title__icon--old {
+  color: transparent;
 }
 
-.notification__content{
+.notification__content {
   display: grid;
   grid-template-columns: auto 1fr;
-  column-gap: $spacer-lg
+  column-gap: $spacer-lg;
 }
 
-.notification__content{
+.notification__content {
   @include text--size-small-10();
   @media screen and (min-width: $medium) {
-    @include  text--size-small-30();
+    @include text--size-small-30();
   }
 }

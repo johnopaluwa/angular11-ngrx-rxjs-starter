@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'yova-header',
+  selector: 'yolo-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })

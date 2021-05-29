@@ -1,9 +1,8 @@
-
 @mixin button--link() {
   text-decoration: underline;
   &:hover {
-    text-decoration-color: $yova-red-10;
-    color: $yova-red-10;
+    text-decoration-color: $yolo-red-10;
+    color: $yolo-red-10;
     background: transparent;
   }
 }

@@ -19,9 +19,9 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'yova-frontend'`, () => {
+  it(`should have as title 'yolo-frontend'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('yova-frontend');
+    expect(app.title).toEqual('yolo-frontend');
   });
 });

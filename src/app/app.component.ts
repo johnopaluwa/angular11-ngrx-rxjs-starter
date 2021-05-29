@@ -10,7 +10,7 @@ import { setUserName } from './root/ngrx/actions/user-details.actions';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  title = 'yova-frontend';
+  title = 'yolo-frontend';
   constructor(
     private readonly store: Store<fromShellAuthenticated.State>,
     private readonly translateService: TranslateService

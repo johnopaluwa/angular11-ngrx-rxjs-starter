@@ -15,7 +15,7 @@ import { BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Component({
-  selector: 'yova-notification',
+  selector: 'yolo-notification',
   templateUrl: './notification.component.html',
   styleUrls: ['./notification.component.scss'],
 })

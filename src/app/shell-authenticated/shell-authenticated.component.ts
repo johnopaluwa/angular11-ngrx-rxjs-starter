@@ -5,7 +5,7 @@ import * as fromShellAuthenticated from '@app/shell-authenticated/ngrx/reducers'
 import { Store } from '@ngrx/store';
 
 @Component({
-  selector: 'yova-shell-authenticated',
+  selector: 'yolo-shell-authenticated',
   templateUrl: './shell-authenticated.component.html',
   styleUrls: ['./shell-authenticated.component.scss'],
 })

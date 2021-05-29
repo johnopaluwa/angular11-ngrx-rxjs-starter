@@ -1,5 +1,5 @@
 <div>
-  <div class="title">{{ "YOVA.USER.NOTIFICATION.TITLE" | translate }}</div>
+  <div class="title">{{ "YOLO.USER.NOTIFICATION.TITLE" | translate }}</div>
   <mat-accordion
     *ngIf="notifications$ | async as notifications; else notLoadedTemplate"
     class="notifications"
@@ -7,7 +7,7 @@
     <ng-container
       *ngFor="let notification of notifications; trackBy: trackByObj"
     >
-      <yova-notification-item
+      <yolo-notification-item
         *ngIf="notification.active"
         [notification]="notification"
         [username]="userName$ | async"
@@ -20,7 +20,7 @@
         (deleteNotification)="deleteNotification($event)"
         (expansionOpened)="expansionOpened(notification)"
         [attr.data-test]="'data__noti-item-' + notification.title"
-      ></yova-notification-item>
+      ></yolo-notification-item>
     </ng-container>
   </mat-accordion>
   <ng-template #notLoadedTemplate> </ng-template>

@@ -1,9 +1,12 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "dd7cc78b-0d3d-4da6-b241-1063542dd1a1"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "yova-frontend": {
+    "yolo-frontend": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -15,12 +18,12 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "yova",
+      "prefix": "yolo",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/yova-frontend",
+            "outputPath": "dist/yolo-frontend",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -69,18 +72,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "yova-frontend:build"
+            "browserTarget": "yolo-frontend:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "yova-frontend:build:production"
+              "browserTarget": "yolo-frontend:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "yova-frontend:build"
+            "browserTarget": "yolo-frontend:build"
           }
         },
         "test": {
@@ -116,16 +119,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "yova-frontend:serve"
+            "devServerTarget": "yolo-frontend:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "yova-frontend:serve:production"
+              "devServerTarget": "yolo-frontend:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "yova-frontend"
+  "defaultProject": "yolo-frontend"
 }

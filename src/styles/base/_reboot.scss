@@ -1,13 +1,15 @@
-
-@import '~@angular/material/theming';
+@import "~@angular/material/theming";
 
 $custom-typography: mat-typography-config(
-  $font-family: $font-family-text
+  $font-family: $font-family-text,
 );
 
 @include angular-material-typography($custom-typography);
 
-html, body { height: 100%; }
+html,
+body {
+  height: 100%;
+}
 
 body {
   margin: 0;
@@ -15,10 +17,10 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: $yova-gray-15;
+  color: $yolo-gray-15;
   text-align: left;
-  background-color: $yova-background !important;
-  a{
-    color: $yova-gray-15;
+  background-color: $yolo-background !important;
+  a {
+    color: $yolo-gray-15;
   }
 }

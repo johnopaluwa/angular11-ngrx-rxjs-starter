@@ -98,7 +98,7 @@
     "template-no-negated-async": true,
     "use-lifecycle-interface": true,
     "use-pipe-transform-interface": true,
-    "directive-selector": [true, "attribute", "yova", "camelCase"],
-    "component-selector": [true, "element", "yova", "kebab-case"]
+    "directive-selector": [true, "attribute", "yolo", "camelCase"],
+    "component-selector": [true, "element", "yolo", "kebab-case"]
   }
 }

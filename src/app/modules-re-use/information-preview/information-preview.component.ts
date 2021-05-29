@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ReplaySubject } from 'rxjs';
 
 @Component({
-  selector: 'yova-information-preview',
+  selector: 'yolo-information-preview',
   templateUrl: './information-preview.component.html',
   styleUrls: ['./information-preview.component.scss'],
 })

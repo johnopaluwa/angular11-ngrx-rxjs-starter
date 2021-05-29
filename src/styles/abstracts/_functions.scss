@@ -1,10 +1,9 @@
-
 // PX to REM and PX to EM calculator
-@function yova-px-to-rem($pxValue, $oneRem: $oneRemPxCount) {
-  @return ($pxValue / $oneRem)+rem;
+@function yolo-px-to-rem($pxValue, $oneRem: $oneRemPxCount) {
+  @return ($pxValue / $oneRem) + rem;
 }
 
-// PX to EM, eg. for line-height: yova-px-to-em($line-height, $font-size)
-@function yova-px-to-em($pxValue, $oneEm) {
-  @return ($pxValue / $oneEm)+em;
+// PX to EM, eg. for line-height: yolo-px-to-em($line-height, $font-size)
+@function yolo-px-to-em($pxValue, $oneEm) {
+  @return ($pxValue / $oneEm) + em;
 }
